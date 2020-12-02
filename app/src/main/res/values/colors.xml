@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    
+    <color name="covid_background_one">#ab47bc</color>
+    <color name="covid_background_two">#7b1fa2</color>
+    <color name="device_background_one">#00c853</color>
+    <color name="device_background_two">#00e676</color>
 </resources>
