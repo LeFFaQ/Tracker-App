@@ -5,16 +5,16 @@ import com.google.gson.annotations.SerializedName
 data class RegionsModel(
 
 	@field:SerializedName("infected")
-	val infected: Int? = null,
+	val infected: Float? = null,
 
 	@field:SerializedName("tested")
 	val tested: Int? = null,
 
 	@field:SerializedName("recovered")
-	val recovered: Int? = null,
+	val recovered: Float? = null,
 
 	@field:SerializedName("deceased")
-	val deceased: Int? = null,
+	val deceased: Float? = null,
 
 	@field:SerializedName("infectedByRegion")
 	val infectedByRegion: List<InfectedByRegionItem?>? = null,
