@@ -38,8 +38,9 @@ class HomeViewModel : ViewModel() {
         pieDataSet.setColors(listColors)
 
         val pieData = PieData(pieDataSet)
-        pieDataSet.sliceSpace = 3f
+        pieDataSet.sliceSpace = 0f
         pieData.setValueTextSize(14f)
+        pieData.setValueTextColor(Color.WHITE)
         pieChart.data = pieData
 
         pieChart.setUsePercentValues(true)
@@ -47,7 +48,6 @@ class HomeViewModel : ViewModel() {
         pieChart.description.isEnabled = false
         pieChart.setEntryLabelColor(Color.TRANSPARENT)
 
-        pieChart.setHoleRadius(30f)
         pieChart.setUsePercentValues(false)
         pieChart.setHoleColor(Color.TRANSPARENT)
 

@@ -7,17 +7,32 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.lffq.trackerapp.ui.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="Самое главное"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_statsFragment"
+            app:destination="@id/statsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/statsFragment"
         android:name="com.lffq.trackerapp.ui.StatsFragment"
-        android:label="fragment_stats"
+        android:label="Статистика COVID-19"
         tools:layout="@layout/fragment_stats" />
     <fragment
         android:id="@+id/listFragment"
         android:name="com.lffq.trackerapp.ui.ListFragment"
-        android:label="fragment_list"
+        android:label="Список контактов"
         tools:layout="@layout/fragment_list" />
     <fragment
         android:id="@+id/photoFragment"

@@ -1,5 +1,6 @@
 package com.lffq.trackerapp.ui
 
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -7,30 +8,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.lffq.trackerapp.R
 import com.lffq.trackerapp.network.RepositoryProvider
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     val homeViewModel: HomeViewModel by navGraphViewModels(R.id.nav_graph)
     val repository = RepositoryProvider.provideSearchRepository()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        Log.d(TAG, "onCreateView")
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
+    @SuppressLint("CheckResult")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         repository.countyInfo("1brJ0NLbQaJKPTWMO")
             .observeOn(AndroidSchedulers.mainThread())
@@ -43,8 +36,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 error.printStackTrace()
             })
 
+        covid_layout.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToStatsFragment()
+            findNavController().navigate(action)
+        }
 
-        Log.d(TAG, "onViewCreated")
-        //homeViewModel.pieChartInit(view)
+        contact_layout.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToListFragment()
+            findNavController().navigate(action)
+        }
+
     }
+
 }
