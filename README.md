@@ -14,6 +14,11 @@
 application for the all-Russian competition "Quantoriada"
 > this is Pre-alpha version! a lot can change over time.
 
+## Скриншоты | Screenshots
+
+<img src="https://sun9-9.userapi.com/impg/GLtx-ok2laMahTlJYAHoeTZDFFZduRi1iCX9kw/Ka3-JCGhgpw.jpg?size=1080x1920&quality=96&proxy=1&sign=6b8137baa393148aa5d228f364a95fc9" alt="" width="200"/>  <img src="https://sun9-10.userapi.com/impg/mWQeko0YW1N9ojPLNehflXJpC7tescdSDatDYw/ks0nO8qD7CA.jpg?size=1080x1920&quality=96&proxy=1&sign=2a7235221976e2ead4af9c2b9e17c4ac" alt="" width="200"/>  <img src="https://sun9-21.userapi.com/impg/ec6gf5nZSNmC8NE-Xahe9DHFJDJ22GpOjKyrUg/UUQTih_71YM.jpg?size=1080x1920&quality=96&proxy=1&sign=f8b2e0d5f014f1764658161c4c2f7572" alt="" width="200"/>  <img src="https://sun9-2.userapi.com/impg/lAzFBi8myIUuzFI3PNac989HKKn_tSZ3xtNVBg/UxRIJXplZ9c.jpg?size=1080x1920&quality=96&proxy=1&sign=42959d9db46bd19ff0fa3d3ab17eef55" alt="" width="200"/>
+
+
 ## Загрузка | Download
 Рабочие версии приложения находятся во вкладке "Релизы"
 ***
