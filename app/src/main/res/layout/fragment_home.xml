@@ -9,6 +9,8 @@
 
 
 
+
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -17,16 +19,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="14dp">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <include
                     android:id="@+id/covid_layout"
-                    layout="@layout/covid_layout" />
+                    layout="@layout/covid_card"
+                    android:layout_margin="6dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -34,7 +37,11 @@
 
                 <include
                     android:id="@+id/contact_layout"
-                    layout="@layout/contacts_layout"/>
+                    layout="@layout/contacts_card"
+                    android:layout_margin="6dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"/>
+
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>

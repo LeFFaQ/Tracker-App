@@ -1,8 +1,6 @@
 package com.lffq.trackerapp.ui
 
-import android.content.ContentValues.TAG
 import android.graphics.Color
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModel
 import com.github.mikephil.charting.animation.Easing
@@ -20,40 +18,47 @@ class HomeViewModel : ViewModel() {
         recovered: Float?,
         deceased: Float?
     ) {
-
-        Log.d(TAG, "pieChartInit: ${infected}")
         val pieChart: PieChart = view.findViewById(R.id.pieChart)
 
-        val listPie = ArrayList<PieEntry>()
-        val listColors = ArrayList<Int>()
+        val listPie = ArrayList<PieEntry>().apply {
+            add(PieEntry(infected!!, "Заболевшие"))
+            add(PieEntry(recovered!!, "Вылечившиеся"))
+            add(PieEntry(deceased!!, "Летал. исход"))
+        }
+        val listColors = ArrayList<Int>().apply {
+            add(Color.parseColor("#5c6bc0"))
+            add(Color.parseColor("#8e99f3"))
+            add(Color.parseColor("#26418f"))
+        }
 
-        listPie.add(PieEntry(infected!!, "Заражённые"))
-        listColors.add(Color.parseColor("#d81b60"))
-        listPie.add(PieEntry(recovered!!, "Вылечившиеся"))
-        listColors.add(Color.parseColor("#ff5c8d"))
-        listPie.add(PieEntry(deceased!!, "Умершие"))
-        listColors.add(Color.parseColor("#a00037"))
+        val pieDataSet = PieDataSet(listPie, null).apply {
+            colors = listColors
+        }
+        val pieData = PieData(pieDataSet).apply {
+            setValueTextSize(14f)
+            setValueTextColor(Color.WHITE)
+        }
+        pieChart.apply {
+            pieChart.data = pieData
+            pieChart.setUsePercentValues(false)
 
-        val pieDataSet = PieDataSet(listPie, "")
-        pieDataSet.setColors(listColors)
+            setEntryLabelColor(Color.WHITE)
+            setEntryLabelTextSize(10f)
 
-        val pieData = PieData(pieDataSet)
-        pieDataSet.sliceSpace = 0f
-        pieData.setValueTextSize(14f)
-        pieData.setValueTextColor(Color.WHITE)
-        pieChart.data = pieData
+            setTouchEnabled(false)
+            rotationAngle = 30f
+            isRotationEnabled = false
 
-        pieChart.setUsePercentValues(true)
-        pieChart.isDrawHoleEnabled = false
-        pieChart.description.isEnabled = false
-        pieChart.setEntryLabelColor(Color.TRANSPARENT)
+            isDrawHoleEnabled = true
+            setHoleColor(Color.TRANSPARENT)
+            transparentCircleRadius = 45f
 
-        pieChart.setUsePercentValues(false)
-        pieChart.setHoleColor(Color.TRANSPARENT)
+            legend.isEnabled = false
+            description.isEnabled = false
 
-        pieChart.legend.isEnabled = false
+            animateY(1000, Easing.EaseInOutQuad)
+        }
 
-        pieChart.animateY(1400, Easing.EaseInOutQuad)
     }
 
 }
