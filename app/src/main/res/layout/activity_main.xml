@@ -10,13 +10,13 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         app:title="Самое главное"
-        app:titleTextColor="@color/white"
+        app:titleTextColor="@color/black"
         app:menu="@menu/app_menu"
         android:theme="@style/MyThemeOverlay_Toolbar"
 
-        android:background="@color/purple_500"/>
+        android:background="@color/transparent"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:layout_below="@id/toolbar"

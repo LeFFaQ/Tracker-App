@@ -7,43 +7,41 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomeFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-
-
-
-        <androidx.core.widget.NestedScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <include
+                android:id="@+id/covid_layout"
+                layout="@layout/covid_card"
+                android:layout_margin="6dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
+
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="12dp"/>
 
-                <include
-                    android:id="@+id/covid_layout"
-                    layout="@layout/covid_card"
-                    android:layout_margin="6dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent" />
+            <include
+                android:id="@+id/contact_layout"
+                layout="@layout/contacts_card"
+                android:layout_margin="6dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="12dp"/>
+        </LinearLayout>
+    </ScrollView>
 
-                <include
-                    android:id="@+id/contact_layout"
-                    layout="@layout/contacts_card"
-                    android:layout_margin="6dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            </LinearLayout>
 
-        </androidx.core.widget.NestedScrollView>
-
+    </androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>

@@ -5,5 +5,4 @@
         android:startColor="@color/device_background_one"
         android:endColor="@color/device_background_two" android:angle="45" />
 
-    <corners android:radius="24dp"/>
 </shape>
