@@ -1,6 +1,7 @@
 package com.lffq.trackerapp.ui
 
 import android.annotation.SuppressLint
+import android.app.Application
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,8 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lffq.trackerapp.R
 import com.lffq.trackerapp.network.RepositoryProvider
+import com.lffq.trackerapp.other.Constants
+import com.lffq.trackerapp.other.adapterData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.contacts_card.*
+import kotlinx.android.synthetic.main.covid_card.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -27,11 +32,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val dataList = ArrayList<adapterData>().apply {
+            add((adapterData(Constants.TYPE_STATS, "1. Hi! I am in View 1")))
+            add((adapterData(Constants.TYPE_CONTACTS, "2. Hi! I am in View 2")))
+        }
+
         recyclerView = recycler_home
         recyclerView.setHasFixedSize(true)
-        val layoutManager = LinearLayoutManager(this.context)
-        recyclerView.layoutManager = layoutManager
-        cardsAdapter = homeViewModel.CardsAdapter(this.context)
+        cardsAdapter = homeViewModel.CardsAdapter(this.context, dataList)
         recyclerView.adapter = cardsAdapter
 
         repository.countyInfo("1brJ0NLbQaJKPTWMO")
@@ -45,16 +53,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 error.printStackTrace()
             })
 
-        covid_layout.setOnClickListener {
+
+        covid_card?.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToStatsFragment()
             findNavController().navigate(action)
         }
 
-        contact_layout.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToListFragment()
-            findNavController().navigate(action)
-        }
 
+        contacts_card?.setOnClickListener { val action = HomeFragmentDirections.actionHomeFragmentToListFragment()
+            findNavController().navigate(action) }
     }
 
 }

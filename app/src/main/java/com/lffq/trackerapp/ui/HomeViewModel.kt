@@ -5,7 +5,12 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
@@ -14,9 +19,13 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.lffq.trackerapp.R
 import com.lffq.trackerapp.other.Constants
-import java.lang.IllegalArgumentException
+import com.lffq.trackerapp.other.adapterData
+import kotlinx.android.synthetic.main.contacts_card.view.*
+import kotlinx.android.synthetic.main.covid_card.view.*
 
 class HomeViewModel : ViewModel() {
+
+    val fragment = HomeFragment()
 
     fun pieChartInit(
         view: View,
@@ -69,60 +78,59 @@ class HomeViewModel : ViewModel() {
 
 
 
-    inner class CardsAdapter(val context: Context?): RecyclerView.Adapter<CardsAdapter.BaseViewHolder<*>>() {
+    inner class CardsAdapter(val context: Context?, var list: ArrayList<adapterData>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-        abstract inner class BaseViewHolder<T>(itemView: View): RecyclerView.ViewHolder(itemView) {
-            abstract fun bind(item: T)
-        }
-        private val adapterDataList: List<Any> = emptyList()
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+            //TODO("Not yet implemented")
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
-
-            return when (viewType) {
-                Constants.TYPE_STATS -> {
-                    val view = LayoutInflater.from(context).inflate(R.layout.covid_card, parent, false)
-                    StatsViewHolder(view)
-                }
-                Constants.TYPE_CONTACTS -> {
-                    val view = LayoutInflater.from(context).inflate(R.layout.contacts_card, parent, false)
-                    ContactsViewHolder(view)
-                }
-                else -> throw IllegalArgumentException("Invalid view type")
+            if (viewType == Constants.TYPE_STATS) {
+                return View1ViewHolder(
+                        LayoutInflater.from(context).inflate(R.layout.covid_card, parent, false)
+                )
             }
-
+            return View2ViewHolder(
+                    LayoutInflater.from(context).inflate(R.layout.contacts_card, parent, false)
+            )
         }
 
-        override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
-            val element = adapterDataList[position]
-            when (holder) {
-                is StatsViewHolder -> holder.bind(element as HomeViewModel)
-                is ContactsViewHolder -> holder.bind(element as HomeViewModel)
-                else -> throw IllegalArgumentException()
-            }
-        }
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        override fun getItemViewType(position: Int): Int {
-            val comparable = data[position]
-            return super.getItemViewType(position)
-        }
-
-        inner class StatsViewHolder(itemView: View) : BaseViewHolder<Any>(itemView) {
-
-            override fun bind(item: Any) {
-                TODO("Not yet implemented")
-            }
-        }
-        inner class ContactsViewHolder(itemView: View) : BaseViewHolder<Any>(itemView)  {
-
-            override fun bind(item: Any) {
-                TODO("Not yet implemented")
+            if (list[position].viewType == Constants.TYPE_STATS) {
+                (holder as View1ViewHolder).bind(position)
+            } else {
+                (holder as View2ViewHolder).bind(position)
             }
         }
 
         override fun getItemCount(): Int {
-            return 2
+            return list.size
         }
 
-    }
+        override fun getItemViewType(position: Int): Int {
+            return list[position].viewType
+        }
 
+        inner class View1ViewHolder(itemView: View) :
+                RecyclerView.ViewHolder(itemView) {
+            fun bind(position: Int) {
+                val recyclerViewModel = list[position]
+
+                itemView.covid_card.setOnClickListener {
+                    val action = HomeFragmentDirections.actionHomeFragmentToStatsFragment()
+                    itemView.findNavController().navigate(action)
+                }
+            }
+        }
+        inner class View2ViewHolder(itemView: View) :
+                RecyclerView.ViewHolder(itemView) {
+            fun bind(position: Int) {
+                val recyclerViewModel = list[position]
+
+                itemView.contacts_card.setOnClickListener {
+                    val action = HomeFragmentDirections.actionHomeFragmentToListFragment()
+                    itemView.findNavController().navigate(action)
+                }
+            }
+        }
+    }
 }
