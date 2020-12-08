@@ -1,14 +1,11 @@
 package com.lffq.trackerapp.ui
 
 import android.annotation.SuppressLint
-import android.app.Application
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lffq.trackerapp.R
 import com.lffq.trackerapp.network.RepositoryProvider
@@ -16,8 +13,6 @@ import com.lffq.trackerapp.other.Constants
 import com.lffq.trackerapp.other.adapterData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.contacts_card.*
-import kotlinx.android.synthetic.main.covid_card.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -43,25 +38,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         recyclerView.adapter = cardsAdapter
 
         repository.countyInfo("1brJ0NLbQaJKPTWMO")
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
-            .subscribe ({
-                    result ->
-                homeViewModel.pieChartInit(view, result?.infected, result?.recovered, result?.deceased)
-                Log.d("Result", "${result.infected}")
-            }, { error ->
-                error.printStackTrace()
-            })
-
-
-        covid_card?.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToStatsFragment()
-            findNavController().navigate(action)
-        }
-
-
-        contacts_card?.setOnClickListener { val action = HomeFragmentDirections.actionHomeFragmentToListFragment()
-            findNavController().navigate(action) }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({ result ->
+                    homeViewModel.pieChartInit(view, result?.infected, result?.recovered, result?.deceased)
+                    Log.d("Result", "${result.infected}")
+                }, { error ->
+                    error.printStackTrace()
+                })
     }
 
 }

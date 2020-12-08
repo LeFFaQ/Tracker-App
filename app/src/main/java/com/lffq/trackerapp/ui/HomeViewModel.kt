@@ -5,12 +5,8 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
@@ -25,7 +21,6 @@ import kotlinx.android.synthetic.main.covid_card.view.*
 
 class HomeViewModel : ViewModel() {
 
-    val fragment = HomeFragment()
 
     fun pieChartInit(
         view: View,
@@ -77,11 +72,9 @@ class HomeViewModel : ViewModel() {
     }
 
 
-
     inner class CardsAdapter(val context: Context?, var list: ArrayList<adapterData>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            //TODO("Not yet implemented")
 
             if (viewType == Constants.TYPE_STATS) {
                 return View1ViewHolder(
