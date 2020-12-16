@@ -3,10 +3,10 @@
 
     <item
         android:id="@+id/favorite"
-        android:title="Пользовательское соглашение" />
+        android:title="@string/test_mode_str" />
 
     <item
         android:id="@+id/search"
-        android:title="Настройки" />
+        android:title="@string/settings_str" />
 
 </menu>

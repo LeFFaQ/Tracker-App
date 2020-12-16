@@ -4,4 +4,6 @@
     <string name="app_"></string>
     <string name="stay_home">Оставайтесь дома</string>
     <string name="click_to_next">Нажмите чтобы посмотреть подробно</string>
+    <string name="test_mode_str">Test mode</string>
+    <string name="settings_str">Settings</string>
 </resources>

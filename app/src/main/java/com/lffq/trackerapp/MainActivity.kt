@@ -28,9 +28,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
-    private val appBarConfiguration by lazy { AppBarConfiguration(navController.graph) }
+    // private val appBarConfiguration by lazy { AppBarConfiguration(navController.graph) }
     lateinit var fusedLocationClient: FusedLocationProviderClient
-    lateinit var locationRequest: LocationRequest
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
