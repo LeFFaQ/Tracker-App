@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tracker app</string>
+    <string name="stay_home">Оставайтесь дома</string>
+    <string name="click_to_next">Нажмите чтобы посмотреть подробно</string>
+    <string name="test_mode_str">Тестовый режим</string>
+    <string name="settings_str">Настройки</string>
+    <string name="hints_testmode_name_label">Название</string>
+</resources>

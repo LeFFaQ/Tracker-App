@@ -39,4 +39,21 @@
             android:name="com.lffq.trackerapp.ui.PhotoFragment"
             android:label="fragment_photo"
             tools:layout="@layout/fragment_photo" />
+    <fragment
+        android:id="@+id/testModeFragment"
+        android:name="com.lffq.trackerapp.ui.TestModeFragment"
+        android:label="@string/test_mode_str"
+        tools:layout="@layout/fragment_testmode" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.lffq.trackerapp.ui.SettingsFragment"
+        android:label="@string/settings_str"
+        tools:layout="@layout/fragment_settings" />
+    <action
+        android:id="@+id/action_global_testModeFragment"
+        app:destination="@id/testModeFragment"
+        app:enterAnim="@anim/slide_in_top"
+        app:exitAnim="@anim/slide_out_bottom"
+        app:popEnterAnim="@anim/slide_in_bottom"
+        app:popExitAnim="@anim/slide_out_top" />
 </navigation>
