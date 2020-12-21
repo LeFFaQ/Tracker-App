@@ -16,10 +16,13 @@ application for the all-Russian competition "Quantoriada"
 
 ## Скриншоты | Screenshots
 
-<img src="https://sun9-9.userapi.com/impg/GLtx-ok2laMahTlJYAHoeTZDFFZduRi1iCX9kw/Ka3-JCGhgpw.jpg?size=1080x1920&quality=96&proxy=1&sign=6b8137baa393148aa5d228f364a95fc9" alt="" width="200"/>  <img src="https://sun9-10.userapi.com/impg/mWQeko0YW1N9ojPLNehflXJpC7tescdSDatDYw/ks0nO8qD7CA.jpg?size=1080x1920&quality=96&proxy=1&sign=2a7235221976e2ead4af9c2b9e17c4ac" alt="" width="200"/>  <img src="https://sun9-21.userapi.com/impg/ec6gf5nZSNmC8NE-Xahe9DHFJDJ22GpOjKyrUg/UUQTih_71YM.jpg?size=1080x1920&quality=96&proxy=1&sign=f8b2e0d5f014f1764658161c4c2f7572" alt="" width="200"/>  <img src="https://sun9-2.userapi.com/impg/lAzFBi8myIUuzFI3PNac989HKKn_tSZ3xtNVBg/UxRIJXplZ9c.jpg?size=1080x1920&quality=96&proxy=1&sign=42959d9db46bd19ff0fa3d3ab17eef55" alt="" width="200"/>
+<img src="https://sun9-65.userapi.com/impg/GhytCzPnmI8VKoncTqxIT5lJtalR-lUfoMlf2w/V1aY_qwxYa8.jpg?size=1080x1920&quality=96&proxy=1&sign=80c8aebd05087d86b6efa5ec302fbeac&type=album" title="Главный экран" width="200"/>  <img src="https://sun9-35.userapi.com/impg/QgvsLEI6dOEoXDDTeqDQb2PUYVq3aScMO7E-DA/R-OIWgaq5JU.jpg?size=1080x1920&quality=96&proxy=1&sign=63080e2fb6b4d45a11c018ded49ff57d&type=album" title="Главный экран с открытым pop-up меню" width="200"/>  <img src="https://sun9-26.userapi.com/impg/RDgjuxhHQBh51tj0YX8OngWzRf1Zu-lghkeczg/tHcO3V3BpVY.jpg?size=1080x1920&quality=96&proxy=1&sign=235be7f333134c8eb6f8614d61cb6c52&type=album" title="Статистика COVID-19" width="200"/>  <img src="https://sun9-20.userapi.com/impg/bm3ojkwu7Kqt4iZ50AL_b6iiV7UGZXW4GrLfPQ/BQ_GBx-hTqI.jpg?size=1080x1920&quality=96&proxy=1&sign=9c324bbf93150ea1cdee4679b032ee9a&type=album" title="Экран с контактами" width="200"/>  <img src="https://sun9-69.userapi.com/impg/D4goO45F-KpDPOlQesmXnsPwa_TyAHJWJP6TYA/gfq9vOHRmwY.jpg?size=1080x1920&quality=96&proxy=1&sign=7c8579adf2e44a9e265d2db9dc32ac59&type=album" title="Тестовый режим (не доделан)" width="200"/>
 
 
 ## Загрузка | Download
-Рабочие версии приложения находятся во вкладке "Релизы"
+Последний релиз приложения
+[Скачать](https://github.com/LeFFaQ/Tracker-App/releases/download/v0.2/quantoriada0-2.apk)
+
+Другие версии приложения находятся во вкладке "Релизы"
 ***
-Working versions of the app are located in the "Releases" tab
+Different versions of the app are located in the "Releases" tab
